@@ -1,3 +1,6 @@
+
+var theData = null;
+
 function makeCall() 
 {
     //MAKE AN API CALL USING FETCH
@@ -8,7 +11,15 @@ function makeCall()
         })
     .then(function(data) {
             console.log(data);
-
+            $('#myTable').DataTable( {
+                data: data,
+                columns: [
+                    { title: "id" },
+                    { title: "name" },
+                    { title: "description" },
+                    { title: "price" }
+                ]
+            } );
         })
     .catch(function(error) {
             console.log(error);
@@ -16,4 +27,8 @@ function makeCall()
 
 
 }
+
+$(document).ready( function () {
+    
+} );
 
